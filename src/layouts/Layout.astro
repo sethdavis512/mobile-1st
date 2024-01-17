@@ -4,6 +4,12 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const links = [
+    { href: '/', text: 'Home' },
+    { href: '/about', text: 'About' },
+    { href: '/contact', text: 'Contact us' }
+];
 ---
 
 <!doctype html>
@@ -17,19 +23,30 @@ const { title } = Astro.props;
         <title>{title}</title>
     </head>
     <body>
-        <header>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/about">About</a>
-                </li>
-                <li>
-                    <a href="/contact">Contact Us</a>
-                </li>
-            </ul>
+        <header class="p-4 border border-b-slate-300 mb-4">
+            <div class="container mx-auto">
+                <ul class="flex gap-3">
+                    {
+                        links.map((link) => {
+                            return (
+                                <li>
+                                    <a
+                                        href={link.href}
+                                        class="px-3 py-2 bg-slate-300 rounded-lg"
+                                    >
+                                        {link.text}
+                                    </a>
+                                </li>
+                            );
+                        })
+                    }
+                </ul>
+            </div>
         </header>
-        <slot />
+        <main>
+            <div class="container mx-auto">
+                <slot />
+            </div>
+        </main>
     </body>
 </html>
