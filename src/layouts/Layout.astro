@@ -25,22 +25,25 @@ const links = [
     <body>
         <header class="p-4 border border-b-slate-300 mb-4">
             <div class="container mx-auto">
-                <ul class="flex gap-3">
-                    {
-                        links.map((link) => {
-                            return (
-                                <li>
-                                    <a
-                                        href={link.href}
-                                        class="px-3 py-2 bg-slate-300 rounded-lg"
-                                    >
-                                        {link.text}
-                                    </a>
-                                </li>
-                            );
-                        })
-                    }
-                </ul>
+                <div class="flex gap-3 items-center">
+                    <div class="font-bold mr-4 text-2xl">mobile1st</div>
+                    <ul class="flex gap-3">
+                        {
+                            links.map((link) => {
+                                return (
+                                    <li>
+                                        <a
+                                            href={link.href}
+                                            class="px-3 py-2 bg-slate-300 rounded-lg"
+                                        >
+                                            {link.text}
+                                        </a>
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
+                </div>
             </div>
         </header>
         <main>
